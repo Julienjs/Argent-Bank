@@ -320,6 +320,7 @@ definitions:
         type: string
       lastName:
         type: string
+        
   Transaction:
     type: object
     properties:

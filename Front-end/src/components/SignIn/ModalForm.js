@@ -19,7 +19,7 @@ const ModalForm = (props) => {
     const { register, setError, handleSubmit, formState: { errors } } = useForm()
 
     const { token, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
-
+    console.log("token", token);
     /**
      * Function that checks if the fields correspond to a user in the database and sends the user to the profile page
      * @param {Object} value 

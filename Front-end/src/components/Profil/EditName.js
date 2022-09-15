@@ -30,8 +30,6 @@ const EditName = (props) => {
         lastName: lastName || userData.lastName
     }
 
-
-
     /**
      * Function that validates the modification of the user's name and surname 
      */

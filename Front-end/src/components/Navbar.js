@@ -20,7 +20,7 @@ const Navbar = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const user = useSelector((state) => state.user.user)
-    const { token } = useSelector((state) => state.auth)
+    const { token, isSuccess } = useSelector((state) => state.auth)
 
     /**
      * Function allows the user to log out of the application
@@ -30,7 +30,7 @@ const Navbar = () => {
         dispatch(reset())
         dispatch(resetUser())
         navigate('/')
-        localStorage.removeItem("persist:root")
+        localStorage.clear()
 
         toast.success(`À bientôt ${user.firstName} 👋`, {
             position: "bottom-right",
@@ -56,7 +56,7 @@ const Navbar = () => {
                     />
                     <h1 className="sr-only">Argent Bank</h1>
                 </NavLink>
-                {token ?
+                {token && isSuccess ?
                     <div>
                         <NavLink to='/profil'>
                             <span className="main-nav-item" href="./user.html">
