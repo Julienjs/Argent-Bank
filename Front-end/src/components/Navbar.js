@@ -19,8 +19,8 @@ const Navbar = () => {
     const [modal, setModal] = useState(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const user = useSelector((state) => state.user.user)
-    const { token, isSuccess } = useSelector((state) => state.auth)
+    const { isSuccess, user } = useSelector((state) => state.user)
+    const { token } = useSelector((state) => state.auth)
 
     /**
      * Function allows the user to log out of the application
@@ -43,7 +43,6 @@ const Navbar = () => {
             theme: "colored"
         });
     }
-
 
     return (
         <header>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { setTransactionData } from '../../feature/transactionSlice';
 import { InfoTransaction } from '../../data/InfoTransactions';
 
@@ -16,12 +16,12 @@ import { InfoTransaction } from '../../data/InfoTransactions';
 const Account = () => {
     const accounts = useSelector(state => state.account)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-    const navLinkStyles = ({ isActive }) => {
-        return {
-            textDecoration: isActive ? "underline" : "none", color: '#FF6060'
-        };
-    };
+    const handleLink = (id) => {
+        navigate(`/transaction/${id}`)
+        dispatch(setTransactionData(InfoTransaction))
+    }
 
     return (
         accounts.map((account, index) =>
@@ -32,9 +32,7 @@ const Account = () => {
                     <p className="account-amount-description">{account.amountDescription}</p>
                 </div>
                 <div className="account-content-wrapper cta">
-                    <NavLink to={`/transaction/${account.id}`} style={navLinkStyles}>
-                        <button className="transaction-button" onClick={() => dispatch(setTransactionData(InfoTransaction))}>View transactions</button>
-                    </NavLink>
+                    <button className="transaction-button" onClick={() => handleLink(account.id)}>View transactions</button>
                 </div>
             </section >
         )

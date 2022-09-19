@@ -9,6 +9,7 @@ basePath: /api/v1
 schemes:
   - http
 paths:
+# Phase 1
   /user/login:
     post:
       tags:
@@ -112,6 +113,7 @@ paths:
           description: Invalid Fields
         "500":
           description: Internal Server Error
+          # Phase 2
   /transactions:
     get:
       security:
@@ -126,7 +128,6 @@ paths:
           description: Attach Bearer JWT token
           required: true
           type: string
-          
       produces:
         - application/json
       responses:
@@ -156,42 +157,6 @@ paths:
           name: transactionId
           type: number
           required: true
-         
-      produces:
-        - application/json
-      responses:
-        "201":
-          description: User transaction retrieved successully
-          schema:
-            $ref: "#/definitions/TransactionResponse"
-        "400":
-          description: Invalid Fields
-        "500":
-          description: Internal Server Error
-    post:
-      security:
-        - Bearer: []
-      tags:
-        - User Transactions Module
-      summary: User transactions API
-      description: API for add new transaction
-      parameters:
-        - in: header
-          name: Authorization
-          description: Attach Bearer JWT token
-          required: true
-          type: string
-        - in: path
-          name: transactionId
-          type: number
-          required: true
-        - in: body
-          name: body
-          description: transaction payload
-          required: true
-          schema:
-            $ref: "#/definitions/Transaction"
-          
       produces:
         - application/json
       responses:
@@ -254,7 +219,6 @@ paths:
           name: transactionId
           type: number
           required: true
-
       produces:
         - application/json
       responses:
@@ -320,17 +284,14 @@ definitions:
         type: string
       lastName:
         type: string
-        
   Transaction:
     type: object
     properties:
-     
       body:
         type: array
         items:
           type: object
           properties:
-           
             date:
               type: string
               description: transaction date
@@ -352,9 +313,6 @@ definitions:
             note:
               type: string
               description: transaction note
-
-   
-   
   TransactionResponse:
     type: object
     properties:

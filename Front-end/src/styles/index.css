@@ -308,7 +308,7 @@ p {
 
 .transaction-button {
   display: block;
-  width: 100%;
+  width: 200px;
   padding: 8px;
   font-size: 1.1rem;
   font-weight: bold;
@@ -319,7 +319,7 @@ p {
 }
 
 .edit-name {
-  width: 30%;
+  width: 90%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -335,12 +335,16 @@ p {
 }
 
 .edit-name form input {
-  width: 170px;
+  width: 40%;
   height: 30px;
   border: 2px solid #B8C4CE;
   border-radius: 3px;
   padding: 0 6px;
   font-weight: 700;
+}
+
+.edit-name form label {
+  display: none;
 }
 
 .edit-name form input::placeholder {
@@ -349,17 +353,17 @@ p {
 }
 
 .edit-name-button {
-  margin-top: 10px;
-  margin-left: 30px;
-  width: 56%;
+  margin-top: 1rem;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
 .edit-name-button button {
-  width: 120px;
+  width: 42%;
   height: 25px;
+  padding: 0 5px;
   color: #6458F5;
   background-color: white;
   border: 1px solid #6458F5;
@@ -368,17 +372,45 @@ p {
 }
 
 
-@media (min-width: 720px) {
+@media screen and (min-width:768px) and (max-width:1366px) {
   .account {
     flex-direction: row;
   }
 
-  .account-content-wrapper.cta {
-    flex: 0;
-  }
-
   .transaction-button {
     width: 200px;
+  }
+
+  .account-content-wrapper {
+    width: auto;
+    flex: 0 0;
+  }
+
+  .edit-name {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width:1367px) {
+  .account {
+    flex-direction: row;
+  }
+
+  .account-content-wrapper {
+    width: auto;
+    flex: 0 0;
+  }
+
+  .edit-name {
+    width: 15%;
+  }
+
+  .edit-name form {
+    width: 100%;
+  }
+
+  .edit-name-button {
+    width: 85%;
   }
 }
 
@@ -393,7 +425,7 @@ p {
   justify-content: space-around;
 }
 
-.transaction-titlep,
+.transaction-title,
 h1,
 h4 {
   margin: 0;
@@ -450,7 +482,6 @@ h4 {
   align-items: center;
   justify-content: center;
   padding: 100px 0;
-  /* height: 100vh; */
 }
 
 .type-transaction {
@@ -458,12 +489,10 @@ h4 {
 }
 
 .transaction-section article {
-  /* width: 80%; */
   height: 80px;
   background-color: white;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   border: 1px solid #C3CFD9;
   border-bottom: none;
   font-size: 9px;
@@ -482,11 +511,10 @@ h4 {
   justify-content: space-between;
   align-items: center;
   width: 180px;
-  /* margin-left: 10px; */
 }
 
 .date-container img {
-  width: 30px;
+  width: 10%;
 }
 
 .amount {
@@ -510,6 +538,51 @@ h4 {
 
 .type .pencilImg {
   display: flex;
+}
+
+
+@media screen and (max-width:721px) {
+  .legend {
+    width: 80%;
+    align-self: flex-end;
+  }
+
+  .legend p {
+    font-size: 9px;
+  }
+
+  .legend .legend-date {
+    flex-grow: 1;
+  }
+
+  .legend-description {
+    flex-grow: 2;
+    padding-left: 20px;
+  }
+
+  .legend-amount {
+    flex-grow: 0.5;
+    text-align: left;
+    padding-left: 25px;
+  }
+
+  .legend-balance {
+    flex-grow: 0.5;
+    text-align: right;
+    padding-right: 25px;
+  }
+
+  .type-transaction {
+    width: 98%;
+  }
+
+  .amount {
+    margin-right: 20px;
+  }
+
+  .type-transaction article {
+    font-size: 7px;
+  }
 }
 
 .edit-container {

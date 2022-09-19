@@ -11,7 +11,7 @@ const initialState = {
     message: ''
 }
 
-export const getUser = createAsyncThunk('/profil', async (_, thunkAPI) => {
+export const getUser = createAsyncThunk('user/profil', async (_, thunkAPI) => {
     try {
         const { token } = thunkAPI.getState().auth.token
         return await UserInfo(token)
